@@ -1,6 +1,6 @@
 # Repo GraphRAG MCP Server
 
-Repo GraphRAG MCP Server is an MCP (Model Context Protocol) server that uses LightRAG and Tree-sitter to build a knowledge graph from code and documents (text) in a repository/directory, and leverages it for Q&A and implementation planning.
+Repo GraphRAG MCP Server is an MCP (Model Context Protocol) server that uses LightRAG and Tree-sitter to build a knowledge graph from code and text-based documents (text-only; PDFs/Word/Excel are not parsed) in a repository/directory, and leverages it for Q&A and implementation planning.
 It provides tools for graph building (`graph_create`), implementation planning (`graph_plan`), and Q&A (`graph_query`).
 
 - 📊 Knowledge graph creation (`graph_create`): Analyze code/documents to build a knowledge graph and embedding index (supports incremental updates)
