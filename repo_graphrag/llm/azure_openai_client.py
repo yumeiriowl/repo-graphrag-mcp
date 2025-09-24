@@ -76,7 +76,7 @@ async def azure_openai_complete_graph_create(
             response = await _azure_openai_client.chat.completions.create(
                 model=graph_create_model_name,
                 messages=messages,
-                max_tokens=max_tokens
+                max_completion_tokens=max_tokens
             )
         except Exception as e:
             logger.error(f"Azure OpenAI API Error (graph_create): {e}")
@@ -138,7 +138,7 @@ async def azure_openai_complete_graph_plan(
             response = await _azure_openai_client.chat.completions.create(
                 model=graph_analysis_model_name,
                 messages=messages,
-                max_tokens=max_tokens
+                max_completion_tokens=max_tokens
             )
         except Exception as e:
             logger.error(f"Azure OpenAI API Error (graph_plan): {e}")
