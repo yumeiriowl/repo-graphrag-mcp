@@ -15,7 +15,8 @@ from ..config.settings import (
     embedding_max_token_size, 
     llm_model_max_async,
     embedding_func_max_async, 
-    document_definition_list
+    document_definition_list,
+    huggingface_hub_token
 )
 
 
@@ -45,8 +46,13 @@ async def _load_embedding_components() -> None:
     async with lock:
         if _emb_model is not None and _tokenizer is not None:
             return
-        _emb_model = await asyncio.to_thread(AutoModel.from_pretrained, embedding_model_name)
-        _tokenizer = await asyncio.to_thread(AutoTokenizer.from_pretrained, embedding_model_name)
+        # Load embedding model & tokenizer (optionally with HF auth token if provided)
+        if huggingface_hub_token:
+            _emb_model = await asyncio.to_thread(AutoModel.from_pretrained, embedding_model_name, token=huggingface_hub_token)
+            _tokenizer = await asyncio.to_thread(AutoTokenizer.from_pretrained, embedding_model_name, token=huggingface_hub_token)
+        else:
+            _emb_model = await asyncio.to_thread(AutoModel.from_pretrained, embedding_model_name)
+            _tokenizer = await asyncio.to_thread(AutoTokenizer.from_pretrained, embedding_model_name)
 
 async def initialize_rag(storage_dir_path: str) -> LightRAG:
     """

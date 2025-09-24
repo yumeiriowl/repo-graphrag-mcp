@@ -110,6 +110,9 @@ embedding_model_name = get_config_value("EMBEDDING_MODEL_NAME", "BAAI/bge-m3", s
 embedding_dim = get_config_value("EMBEDDING_DIM", "1024", int)
 embedding_max_token_size = get_config_value("EMBEDDING_MAX_TOKEN_SIZE", "2048", int)
 
+# Optional Hugging Face Hub token (for authenticated/private models)
+huggingface_hub_token = get_config_value("HUGGINGFACE_HUB_TOKEN", None, str)
+
 # ==============================================================================
 # Performance Settings
 # ==============================================================================
