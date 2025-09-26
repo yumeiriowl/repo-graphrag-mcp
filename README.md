@@ -134,8 +134,8 @@ Elements:
 
 Examples:
 ```
-graph: /path/to/your/repository my_project
-graph: /path/to/your/repository my_project graphify
+graph: /absolute/path/to/your/repository my_project
+graph: /absolute/path/to/your/repository my_project graphify
 graph: C:\\projects\\myapp webapp_storage please create storage
 ```
 
