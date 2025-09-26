@@ -145,7 +145,7 @@ If you want to rebuild after changing the embedding model or extraction settings
 
 Note (Performance):
 The first graph creation takes longer as the number of files increases. As a guideline, if there are more than 1,000 files, consider narrowing the target directory (processing time depends on environment and file sizes).
-Incremental updates reanalyze only the diffs, so this note does not apply to updates.
+Incremental updates reanalyze only the diffs, so the above guideline does not necessarily apply to updates.
 
 Note (First download):
 If the specified embedding model is not cached on first graph creation, it will be automatically downloaded (subsequent runs use the cache).
