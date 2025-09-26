@@ -106,7 +106,7 @@ claude mcp add repo-graphrag \
       "command": "uv",
       "args": [
         "--directory",
-        "/path/to/repo-graphrag-mcp",
+        "/absolute/path/to/repo-graphrag-mcp",
         "run",
         "server.py"
       ]
