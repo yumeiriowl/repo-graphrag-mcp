@@ -163,7 +163,7 @@ Examples:
 ```
 graph: I want to add user authentication my_project
 graph: Add GraphQL support to the REST API my_project
-graph: Create a performance improvement plan webapp_storage
+graph: Improve API performance under high load webapp_storage
 ```
 
 #### `graph_query` - Q&A
