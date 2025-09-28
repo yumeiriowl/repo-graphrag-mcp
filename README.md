@@ -162,7 +162,7 @@ Elements:
 Examples:
 ```
 graph: I want to add user authentication my_project
-graph: Add GraphQL support to the REST API my_project
+graph: my_project Add GraphQL support to the REST API
 graph: Improve API performance under high load webapp_storage
 ```
 
