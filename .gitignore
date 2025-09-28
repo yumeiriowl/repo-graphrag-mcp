@@ -12,8 +12,7 @@ venv/
 ENV/
 
 # Storage directories
-storage/
-**/storage/
+**/*storage*/
 
 # Logs
 *.log
