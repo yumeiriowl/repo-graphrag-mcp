@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yumeiriowl-repo-graphrag-mcp-badge.png)](https://mseep.ai/app/yumeiriowl-repo-graphrag-mcp)
+
 # Repo GraphRAG MCP Server
 
 Repo GraphRAG MCP Server is an MCP (Model Context Protocol) server that uses LightRAG and Tree-sitter to build a knowledge graph from code and text-based documents (text-only; PDFs/Word/Excel are not parsed) in a repository/directory, and leverages it for Q&A and implementation planning.
