@@ -31,36 +31,36 @@ async def code_to_storage(rag: LightRAG, code_dict: Dict[str, bytes]) -> None:
     async def process_file(code_path: str, file_content_bytes: bytes) -> Dict[str, Any]:
         file_name = os.path.basename(code_path)
 
-    # Extract extension from filename
+        # Extract extension from filename
         _, ext = os.path.splitext(file_name)
 
-    # Prepare Tree-sitter parser
+        # Prepare Tree-sitter parser
         language = code_ext_dict[ext.lstrip(".")]["language"]
         parser = Parser(language)
 
-    # Parse bytes into syntax tree
+        # Parse bytes into syntax tree
         tree = parser.parse(file_content_bytes)
 
-    # Get root node
+        # Get root node
         root_node = tree.root_node
 
-    # Decode bytes to UTF-8 text
+        # Decode bytes to UTF-8 text
         file_content_text = file_content_bytes.decode('utf-8')
 
-        # Build robust line offset list (handles LF / CRLF uniformly)
+        # Build a line offset list 
         line_offset_list = build_line_offset_list(file_content_bytes)
 
         chunks = []
         entities = []
         relationships = []
 
-    # Extract nodes to be chunked
+        # Extract nodes to be chunked
         chunk_node_list = await create_code_chunks(root_node, file_content_bytes)
 
-    # Get definition node types to extract as entities
+        # Get definition node types to extract as entities
         definition_dict = code_ext_dict[ext.lstrip(".")]["definition"]
 
-    # For each target node, perform chunking and graph extraction
+        # For each target node, perform chunking and graph extraction
         for node, node_text in chunk_node_list:
             
             # Get line range
@@ -94,6 +94,7 @@ async def code_to_storage(rag: LightRAG, code_dict: Dict[str, bytes]) -> None:
             relationships += chunk_relationships
 
         logger.info(f"Done: {code_path}")
+        
         # Return file/chunks/graph information
         return {
             "file_path": code_path,
