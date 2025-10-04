@@ -307,11 +307,11 @@ The following 13 languages are supported:
 - Go
 - Ruby
 - Java
+- Kotlin
 - JavaScript
 - TypeScript
 - HTML
 - CSS
-- Kotlin
 
 ## 🏗️ MCP Structure
 
