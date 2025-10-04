@@ -295,9 +295,9 @@ Quick reference for all items
 | `MERGE_MIN_NAME_LENGTH` | Minimum entity name length for merge |
 | `MERGE_MAX_NAME_LENGTH` | Maximum entity name length for merge |
 
-## 🧬 Supported Languages (v0.2.0)
+## 🧬 Supported Languages (v0.2.2)
 
-The following 12 languages are supported:
+The following 13 languages are supported:
 
 - Python
 - C
@@ -311,6 +311,7 @@ The following 12 languages are supported:
 - TypeScript
 - HTML
 - CSS
+- Kotlin
 
 ## 🏗️ MCP Structure
 

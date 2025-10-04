@@ -13,6 +13,7 @@ import tree_sitter_html as tshtml
 import tree_sitter_ruby as tsruby
 import tree_sitter_css as tscss
 import tree_sitter_c_sharp as tscsharp
+import tree_sitter_kotlin as tskotlin
 
 
 # Load .env file
@@ -285,6 +286,19 @@ java_definition_dict = {
 # Tree-sitter for Java
 java_lang = Language(tsjava.language())
 
+# Kotlin definition nodes to extract
+kotlin_definition_dict = {
+    "class_declaration": "identifier",
+    "function_declaration": "identifier",
+    "interface_declaration": "identifier",
+    "object_declaration": "identifier",
+    "primary_constructor": "identifier",
+    "secondary_constructor": "identifier"
+}
+
+# Tree-sitter for Kotlin
+kotlin_lang = Language(tskotlin.language())
+
 # JavaScript definition nodes to extract
 js_definition_dict = {
     "function_declaration": "identifier",
@@ -366,6 +380,14 @@ code_ext_dict = {
     "js": {
         "definition": js_definition_dict,
         "language": js_lang
+    },
+    "kt": {
+        "definition": kotlin_definition_dict,
+        "language": kotlin_lang
+    },
+    "kts": {
+        "definition": kotlin_definition_dict,
+        "language": kotlin_lang
     },
     "jsx": {
         "definition": js_definition_dict,

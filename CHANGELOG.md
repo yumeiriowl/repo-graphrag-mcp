@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2 - 2025-10-04
+
+### Added
+- Kotlin language support (tree-sitter-kotlin) with `.kt` and `.kts` entity extraction.
+
 ## 0.2.1 - 2025-10-04
 
 ### Added

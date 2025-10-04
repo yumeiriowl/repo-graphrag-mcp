@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "repo-graphrag-mcp"
-version = "0.2.1"
+version = "0.2.2"
 description = "GraphRAG-based MCP server: builds a repository knowledge graph (Tree-sitter + LightRAG) for Q&A and change planning."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,6 +20,7 @@ dependencies = [
     "tree-sitter-python==0.23.6",
     "tree-sitter-cpp==0.23.4",
     "tree-sitter-java==0.23.5",
+    "tree-sitter-kotlin>=1.1.0",
     "tree-sitter-javascript==0.23.1",
     "tree-sitter-typescript==0.23.2",
     "tree-sitter-rust==0.24.0",
