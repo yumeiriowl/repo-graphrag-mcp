@@ -76,6 +76,7 @@ ANTHROPIC_API_KEY=your_anthropic_api_key # or openai, gemini, azure_openai
 # AZURE_API_VERSION=azure_openai_api_version
 
 # OPENAI_API_KEY=your_openai_api_key
+# OPENAI_BASE_URL=http://localhost:1234/v1  # For LM Studio or other OpenAI-compatible local servers
 
 # GEMINI_API_KEY=your_gemini_api_key
 
@@ -260,6 +261,7 @@ Quick reference for all items
 | `AZURE_OPENAI_ENDPOINT` | Azure OpenAI endpoint URL |
 | `AZURE_API_VERSION` | Azure OpenAI API version |
 | `OPENAI_API_KEY` | OpenAI API key |
+| `OPENAI_BASE_URL` | OpenAI-compatible endpoint base URL (e.g. LM Studio http://localhost:1234/v1) |
 | `GEMINI_API_KEY` | Google Gemini API key |
 | `GRAPH_CREATE_MODEL_NAME` | LLM model name for graph creation |
 | `GRAPH_ANALYSIS_MODEL_NAME` | LLM model name for planning/Q&A |

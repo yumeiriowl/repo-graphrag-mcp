@@ -4,6 +4,7 @@ from ..config.settings import (
     graph_create_max_token_size,
     graph_analysis_max_token_size,
     openai_api_key,
+    openai_base_url,
     rate_limit_error_wait_time
 )
 from ..utils.rate_limiter import get_rate_limiter
@@ -17,11 +18,16 @@ logger = logging.getLogger(__name__)
 
 # Initialize OpenAI client
 _openai_client = None
-if openai_api_key:
-    _openai_client = AsyncOpenAI(
-        api_key=openai_api_key,
-        timeout=300.0
-    )
+if openai_api_key or openai_base_url:
+    client_kwargs = {"timeout": 300.0}
+    if openai_api_key:
+        client_kwargs["api_key"] = openai_api_key
+    elif openai_base_url:
+        # For local OpenAI-compatible
+        client_kwargs["api_key"] = "not-needed"
+    if openai_base_url:
+        client_kwargs["base_url"] = openai_base_url.rstrip("/")
+    _openai_client = AsyncOpenAI(**client_kwargs)
 
 async def openai_complete_graph_create(
     prompt: str,

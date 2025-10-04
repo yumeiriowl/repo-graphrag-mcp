@@ -69,6 +69,7 @@ graph_analysis_provider = get_config_value("GRAPH_ANALYSIS_PROVIDER", str)  # "a
 anthropic_api_key = get_config_value("ANTHROPIC_API_KEY", None, str)
 azure_openai_api_key = get_config_value("AZURE_OPENAI_API_KEY", None, str)
 openai_api_key = get_config_value("OPENAI_API_KEY", None, str)
+openai_base_url = get_config_value("OPENAI_BASE_URL", None, str)
 gemini_api_key = get_config_value("GEMINI_API_KEY", None, str)
 
 # Azure endpoint and API version (when using Azure provider)
@@ -84,8 +85,8 @@ for provider in used_providers:
         raise ValueError(f"Provider '{provider}' is selected but ANTHROPIC_API_KEY is not set.")
     elif provider == "azure_openai" and not azure_openai_api_key:
         raise ValueError(f"Provider '{provider}' is selected but AZURE_OPENAI_API_KEY is not set.")
-    elif provider == "openai" and not openai_api_key:
-        raise ValueError(f"Provider '{provider}' is selected but OPENAI_API_KEY is not set.")
+    elif provider == "openai" and not (openai_api_key or openai_base_url):
+        raise ValueError(f"Provider '{provider}' is selected but neither OPENAI_API_KEY nor OPENAI_BASE_URL is set.")
     elif provider == "gemini" and not gemini_api_key:
         raise ValueError(f"Provider '{provider}' is selected but GEMINI_API_KEY is not set.")
 
