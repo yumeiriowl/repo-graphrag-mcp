@@ -2301,7 +2301,7 @@ dependencies = [
     { name = "tree-sitter-typescript" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "pytest" },
 ]
@@ -2315,7 +2315,6 @@ requires-dist = [
     { name = "lightrag-hku", specifier = "==1.4.7" },
     { name = "numpy", specifier = "==2.2.6" },
     { name = "openai", specifier = ">=1.0.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.4.2" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
     { name = "sentence-transformers", specifier = ">=3.0.1" },
     { name = "tokenizers", specifier = ">=0.21.4" },
@@ -2336,7 +2335,9 @@ requires-dist = [
     { name = "tree-sitter-rust", specifier = "==0.24.0" },
     { name = "tree-sitter-typescript", specifier = "==0.23.2" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=8.4.2" }]
 
 [[package]]
 name = "requests"

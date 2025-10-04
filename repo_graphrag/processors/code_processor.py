@@ -10,7 +10,7 @@ from lightrag.base import DocStatus
 from ..config.settings import code_ext_dict, parallel_num
 from .code_chunker import create_code_chunks
 from .code_grapher import create_code_graph
-from ..utils.node_line_range import get_node_line_range
+from ..utils.node_line_range import get_node_line_range, build_line_offset_list
 
 
 logger = logging.getLogger(__name__)
@@ -47,14 +47,8 @@ async def code_to_storage(rag: LightRAG, code_dict: Dict[str, bytes]) -> None:
     # Decode bytes to UTF-8 text
         file_content_text = file_content_bytes.decode('utf-8')
 
-        line_offset = 0
-        line_offset_list = []
-
-    # Compute byte offsets for each line start
-        line_list = file_content_text.splitlines()
-        for line in line_list:
-            line_offset_list.append(line_offset)
-            line_offset += len(line.encode("utf-8")) + 1
+        # Build robust line offset list (handles LF / CRLF uniformly)
+        line_offset_list = build_line_offset_list(file_content_bytes)
 
         chunks = []
         entities = []

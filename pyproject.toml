@@ -39,11 +39,6 @@ dependencies = [
     "faiss-cpu>=1.7.0"
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=8.4.2",
-]
-
 [project.scripts]
 repo-graphrag-mcp = "server:mcp.run"
 
@@ -52,6 +47,11 @@ packages = ["repo_graphrag"]
 include = [
     "server.py",
     "repo_graphrag/**/*",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
 ]
 
 
