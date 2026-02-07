@@ -295,7 +295,7 @@ Quick reference for all items
 | `MERGE_MIN_NAME_LENGTH` | Minimum entity name length for merge |
 | `MERGE_MAX_NAME_LENGTH` | Maximum entity name length for merge |
 
-## 🧬 Supported Languages (v0.2.4)
+## 🧬 Supported Languages (v0.2.5)
 
 The following 13 languages are supported:
 

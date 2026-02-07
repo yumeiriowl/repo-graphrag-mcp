@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.5 - 2026-02-07
+
+### Changed
+- `graph_plan` prompt to ask user for confirmation before autonomous execution.
+
 ## 0.2.4 - 2026-02-07
 
 ### Added

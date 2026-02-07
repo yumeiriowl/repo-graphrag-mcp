@@ -53,7 +53,7 @@ Extract the important elements and processes from the program and create a brief
 PLAN_RESPONSE_TEMPLATE = """
 # Task
 An implementation plan has been created by referencing the storage based on the modification request.
-Execute document and code updates autonomously according to the plan.
+Present the plan content to the user in an easy-to-understand manner, and ask for their decision on whether to autonomously execute document and code updates based on this plan.
 If there are ambiguous or unclear parts in the plan, refer to the sample questions and call the tool "graph_query" to ask questions.
 
 Modification Request:
