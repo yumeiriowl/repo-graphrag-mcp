@@ -31,7 +31,7 @@ It provides tools for graph building (`graph_create`), implementation planning (
 
 ### Prerequisites
 
-- Python 3.10+
+- python 3.11+
 - [uv](https://github.com/astral-sh/uv) package manager
 - Credentials for your chosen LLM provider (set the required environment variables; see the LLM Providers section below)
 
@@ -81,10 +81,10 @@ ANTHROPIC_API_KEY=your_anthropic_api_key # or openai, gemini, azure_openai
 # GEMINI_API_KEY=your_gemini_api_key
 
 # LLM model for graph creation
-GRAPH_CREATE_MODEL_NAME=claude-3-5-haiku-20241022
+GRAPH_CREATE_MODEL_NAME=claude-haiku-4-5
 
 # LLM model for planning and Q&A
-GRAPH_ANALYSIS_MODEL_NAME=claude-sonnet-4-20250514
+GRAPH_ANALYSIS_MODEL_NAME=claude-sonnet-4-5
 ```
 
 ### 4. MCP Client Setup
@@ -200,7 +200,7 @@ Specify the identifiers in `.env` as `GRAPH_CREATE_PROVIDER` / `GRAPH_ANALYSIS_P
 
 ### Embedding Model
 
-- Default: `BAAI/bge-m3`
+- Default: `voyageai/voyage-4-nano`
 - Compatibility: Supports Hugging Face sentence-transformers compatible models
  - First run: If the specified embedding model is not cached, it will be downloaded automatically. Cache location depends on environment/settings. Download time and disk space depend on model size.
  - Authenticated models: For Hugging Face models that require authentication, set `HUGGINGFACE_HUB_TOKEN` in `.env`.
@@ -295,7 +295,7 @@ Quick reference for all items
 | `MERGE_MIN_NAME_LENGTH` | Minimum entity name length for merge |
 | `MERGE_MAX_NAME_LENGTH` | Maximum entity name length for merge |
 
-## 🧬 Supported Languages (v0.2.2)
+## 🧬 Supported Languages (v0.2.3)
 
 The following 13 languages are supported:
 

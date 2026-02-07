@@ -3,7 +3,7 @@ import logging
 import os
 import json
 from lightrag import LightRAG
-from lightrag.utils import compute_mdhash_id
+from lightrag.utils import compute_mdhash_id, sanitize_text_for_encoding
 from .initialization.initializer import initialize_rag
 from .utils.file_reader import read_dir
 from .processors.document_processor import doc_to_storage
@@ -108,7 +108,7 @@ async def _cleanup_and_prepare_documents(
         
         # Generate IDs for document files (clean content same as LightRAG)
         for doc_file_path, doc_content in doc_dict.items():
-            cleaned_content = doc_content.replace('\x00', '').strip() if doc_content else ""
+            cleaned_content = sanitize_text_for_encoding(doc_content) if doc_content else ""
             current_doc_dict[doc_file_path] = compute_mdhash_id(cleaned_content, prefix="doc-")
         
         # Generate IDs for code files (no normalization)

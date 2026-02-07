@@ -85,7 +85,7 @@ async def initialize_rag(storage_dir_path: str) -> LightRAG:
         embedding_func=EmbeddingFunc(  # embedding function
             embedding_dim=embedding_dim,  # embedding dimension
             max_token_size=embedding_max_token_size,  # max tokens for embedding model
-            func=lambda texts: hf_embed(  # vectorize texts via HF model
+            func=lambda texts: hf_embed.func(  # vectorize texts via HF model
                 texts,
                 tokenizer=_tokenizer,
                 embed_model=_emb_model,

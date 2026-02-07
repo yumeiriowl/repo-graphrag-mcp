@@ -66,8 +66,13 @@ def read_dir(read_dir_path: str) -> Tuple[Dict[str, str], Dict[str, bytes]]:
             # Read file content into dictionaries
             if ext_without_dot in code_ext_dict:
                 with open(file_path, "rb") as file:
-                    code_dict[file_path] = file.read()
-                logger.info(f"Code file: {file_path}")
+                    content = file.read()
+                if content.strip():
+                    code_dict[file_path] = content
+                    logger.info(f"Code file: {file_path}")
+                else:
+                    logger.info(f"Skipping empty code file: {file_path}")
+                    continue
             elif ext_without_dot in doc_ext_dict["text_file"] or is_special_file:
                 try:
                     with open(file_path, "r", encoding="utf-8") as file:

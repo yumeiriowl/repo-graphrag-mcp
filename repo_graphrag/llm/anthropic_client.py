@@ -56,12 +56,15 @@ async def anthropic_complete_graph_create(
     # Set max token size
     max_tokens = kwargs.get('max_tokens', graph_create_max_token_size)
 
+    # Build system content blocks
+    system_content = [{"type": "text", "text": system_prompt}] if system_prompt else []
+
     # Apply rate limiting and run LLM
     async with get_rate_limiter():
         try:
             # Execute LLM
             response = await _anthropic_client.messages.create(
-                system=system_prompt,
+                system=system_content,
                 model=graph_create_model_name,
                 max_tokens=max_tokens,
                 messages=messages,
@@ -113,12 +116,15 @@ async def anthropic_complete_graph_plan(
     # Set max token size
     max_tokens = kwargs.get('max_tokens', graph_analysis_max_token_size)
 
+    # Build system content blocks
+    system_content = [{"type": "text", "text": system_prompt}] if system_prompt else []
+
     # Apply rate limiting and run LLM
     async with get_rate_limiter():
         try:
             # Execute LLM
             response = await _anthropic_client.messages.create(
-                system=system_prompt,
+                system=system_content,
                 model=graph_analysis_model_name,
                 max_tokens=max_tokens,
                 messages=messages,
