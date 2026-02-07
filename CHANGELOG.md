@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4 - 2026-02-07
+
+### Added
+- AGENTS.md usage guide for MCP agents.
+
 ## 0.2.3 - 2026-02-07
 
 ### Changed
